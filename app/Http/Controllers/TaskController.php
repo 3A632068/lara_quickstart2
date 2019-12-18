@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Task;
 use Illuminate\Http\Request;
+
 
 class TaskController extends Controller
 {
@@ -15,7 +17,13 @@ class TaskController extends Controller
     //回傳視圖
     public function index(Request $request)
     {
-        return view('tasks.index');
+        //顯示已有的任務
+        $tasks = Task::where('user_id', $request->user()->id)->get();
+
+        return view('tasks.index', [
+            'tasks' => $tasks,
+        ]);
+
     }
 
     //驗證
