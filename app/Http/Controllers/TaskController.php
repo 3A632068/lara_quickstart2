@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests;
 use App\Task;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 
 class TaskController extends Controller
@@ -22,7 +24,10 @@ class TaskController extends Controller
         //顯示已有的任務_程式碼1
         //$tasks= auth()->user()->tasks;
         //顯示已有的任務_程式碼2
-        $tasks= auth()->user()->tasks()->get();
+        //$tasks= auth()->user()->tasks()->get();
+        //顯示已有的任務_程式碼2
+        $tasks=Auth::user()->tasks;
+
 
         return view('tasks.index', [
             'tasks' => $tasks,
