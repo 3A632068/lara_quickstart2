@@ -26,7 +26,9 @@ class TaskController extends Controller
         //顯示已有的任務_程式碼2
         //$tasks= auth()->user()->tasks()->get();
         //顯示已有的任務_程式碼3
-        $tasks=Auth::user()->tasks;
+        //$tasks=Auth::user()->tasks;
+        //顯示已有的任務_程式碼4
+        $tasks=Auth::user()->tasks()->get();
 
 
         return view('tasks.index', [
