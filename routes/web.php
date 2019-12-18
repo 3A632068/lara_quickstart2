@@ -19,3 +19,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//三個處理任務的路由(新增、刪除、及表列)
+Route::get('/tasks', 'TaskController@index');
+Route::post('/task', 'TaskController@store');
+Route::delete('/task/{task}', 'TaskController@destroy');
