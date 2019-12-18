@@ -36,4 +36,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //Eloquent關聯-tasks關聯
+    public function tasks()
+    {
+        return $this->hasMany(Task::class);
+    }
 }
