@@ -20,7 +20,9 @@ class TaskController extends Controller
         //顯示已有的任務_原程式碼
         //$tasks = Task::where('user_id', $request->user()->id)->get();
         //顯示已有的任務_程式碼1
-        $tasks= auth()->user()->tasks;
+        //$tasks= auth()->user()->tasks;
+        //顯示已有的任務_程式碼2
+        $tasks= auth()->user()->tasks()->get();
 
         return view('tasks.index', [
             'tasks' => $tasks,
